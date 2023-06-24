@@ -1,0 +1,154 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="UTF-8">
+    <title>Maze-Algo</title>
+    <link href="//cdn.jsdelivr.net/gh/s1acr/my_jsDelivr@main/googleFonts/myblog.css" rel="stylesheet">
+    </link>
+    <style>
+        body {
+            background: #39c5bb;
+            font-family: 'Lobster', 'Baloo_Paaji_2', 'ZCOOL_XiaoWei';
+        }
+
+        .main {
+            height: 100vh;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+
+        }
+
+        #title {
+            font-size: 3rem;
+        }
+
+        #info {
+            width: 300px;
+            height: 580px;
+            position: relative;
+        }
+
+        #copy {
+            position: absolute;
+            right: 0;
+            bottom: 0;
+        }
+
+        #display {
+            background-color: #fff;
+            margin-right: 50px;
+            border: 2px solid black;
+            box-shadow: 7px 7px 7px rgba(0, 0, 0, 0.5);
+            width: 592px;
+            height: 592px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+
+        #github {
+            position: absolute;
+            bottom: 0;
+        }
+
+        label {
+            font-size: 1.5rem;
+        }
+
+        input[type="range"] {
+            -webkit-appearance: none;
+            width: 100%;
+            height: 20px;
+            background: #ddd;
+            outline: none;
+            opacity: 0.7;
+            -webkit-transition: .2s;
+            transition: opacity .2s;
+        }
+
+        input[type="range"]:hover {
+            opacity: 1;
+        }
+
+        input[type="range"]::-webkit-slider-thumb {
+            -webkit-appearance: none;
+            appearance: none;
+            width: 20px;
+            height: 20px;
+            background: #0c120d;
+            cursor: pointer;
+        }
+
+        input[type="range"]::-moz-range-thumb {
+            width: 20px;
+            height: 20px;
+            background: #0c120d;
+            cursor: pointer;
+        }
+
+        button {
+            display: inline-block;
+            margin-top: 15px;
+            padding: 10px 20px;
+            border: none;
+            border-radius: 4px;
+            color: #3d9e4d;
+            background-color: #0c120d;
+            text-align: center;
+            font-size: 16px;
+            cursor: pointer;
+            transition: background-color 0.3s ease;
+        }
+
+        button:hover {
+            background-color: #0c120d;
+        }
+
+        button:active {
+            background-color: #0c120d;
+            box-shadow: 0 5px #666;
+            transform: translateY(4px);
+        }
+    </style>
+
+</head>
+
+<body>
+    <div class="main">
+        <div id="display">
+            <canvas id="canvas"></canvas>
+        </div>
+        <sub id="info">
+            <div id=title>Maze-Algo</div>
+            <label for="col">col:</label>
+            <input type="range" id="col" min="10" max="37" value="37">
+            <br>
+            <label for="row">row:</label>
+            <input type="range" id="row" min="10" max="37" value="37">
+            <br>
+
+            <label for="row">generate-speed</label>
+            <input type="range" id="gs" min="10" max="100" value="50">
+            <br>
+            <label for="col">solve-speed</label>
+            <input type="range" id="ss" min="10" max="100" value="50">
+            <br>
+
+            <button id="generate" type="button"> generate</button>
+            <div id="hints">
+                <h4>提示:</h4>
+                <p>按键可调节速度与地图大小</p>
+                <p>绿色点为起点, <b>等待地图生成完毕, 点击地图上任意点放置红色终点</b>, 自动开始寻路</p>
+                <iframe id="github"
+                    src="https://ghbtns.com/github-btn.html?user=s1acr&repo=blog&type=watch&count=true&size=large&v=2"
+                    frameborder="0" scrolling="0" width="170" height="30" title="GitHub"></iframe>
+                <small id="copy"> <big>&copy;slacr</big> 2023-6</small>
+            </div>
+        </sub>
+    </div>
+</body>
+<script src="maze.js"></script>
+
+</html>
